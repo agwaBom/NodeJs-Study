@@ -18,12 +18,12 @@ function add(a, b, callback) {
   var history = function() {
     return a + " + " + b + " = " + result;
   };
-  return history;
+  return history; //history 라는 함수가 반환됨.
 }
 
 var add_history = add(10, 10, function(result) {
   console.log("파라미터로 전달된 콜백 함수 호출됨.");
-  console.log("더하기 (10, 10)의 결과 : %d", result);
+  console.log("더하기 (10, 10)의 결과 : %d", result); //callback 함수에서 실행됨.
 });
 console.log("결과 값으로 받은 함수 실행 결과 : " + add_history()); // 새로운 history함수가 실행되면서 출력하게 됨
 
@@ -34,7 +34,7 @@ function add(a, b, callback) {
 
   var count = 0;
   var history = function() {
-    count++;
+    count++; //history 함수가 몇번이나 실행됐는지 알 수 있게 됨.
     return count + " : " + a + " + " + b + " = " + result;
   };
   return history;
