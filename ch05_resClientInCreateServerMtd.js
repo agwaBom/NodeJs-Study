@@ -3,10 +3,10 @@
 // close - 서버를 종료할 때 발생하는 이벤트.
 
 var http = require("http");
-res객체를 사용하여 응답을 보낼때 사용하는 메서드
+// res객체를 사용하여 응답을 보낼때 사용하는 메서드
 // writeHead(statusCode, statusMessage, headers) - 응답으로 보낼 헤더를 만듬.
 // write(chunk, encoding, callback) - 응답 본문 데이터를 만듬. 여러번 호출될 수 있음.
-// end(data, encoding, callback) - 클라이언트로 응답을 전송=. 파라미터에 데이터가 들어있으면 해당 데이터도 함께 응답으로 전송함.
+// end(data, encoding, callback) - 클라이언트로 응답을 전송. 파라미터에 데이터가 들어있으면 해당 데이터도 함께 응답으로 전송함.
 var server = http.createServer(function(req, res) {
   console.log("클라이언트 요청이 들어왔습니다.");
 
