@@ -3,7 +3,7 @@ var fs = require("fs"); //파일시스템에 접근하기 위한 모듈.
 // readFile(filename, encoding, callback) - 비동기식 IO 파일 읽기
 // readFileSync(filename, encoding) - 동기식 IO 파일 읽기
 // writeFile(filename, encoding = 'utf8', callback) - 비동기식 IO 파일 쓰기
-// writeFileSync(filename, encoding = 'utf8') - 동기식 IO 파일 쓰기
+// writeFileSync(filename, encoding = 'utf8') - 동기식 IO 파일 쓰기no
 
 //동기식 IO로 파일 읽기. - 대기 처리 대기 처리....
 var data = fs.readFileSync("./package.json", "utf8");
