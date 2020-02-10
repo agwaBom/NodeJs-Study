@@ -1,0 +1,14 @@
+{
+  "name": "05-2expressintro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ch05_makeNewExpressServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
