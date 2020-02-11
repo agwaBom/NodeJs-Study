@@ -10,4 +10,4 @@ this page will also cover integrating with mongoDB in future.
 
 description about code is in each javascript files.
 
-it is in Korean, but will be updated to english when updated.
+it is in Korean, but will be updated to english when finished.
