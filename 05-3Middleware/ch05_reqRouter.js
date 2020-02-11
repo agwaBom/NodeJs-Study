@@ -35,6 +35,11 @@ router.route("/process/login").post(function(req, res) {
   res.end();
 });
 
+// 지정된 주소가 아닌 모든 페이지에 대한 오류 페이지 보여주기
+app.all("*", function(req, res) {
+  res.status(404).send("<h1>ERROR - 페이지를 찾을 수 없습니다.</h1>");
+});
+
 // 라우터 객체를 app 객체에 등록.
 app.use("/", router);
 
