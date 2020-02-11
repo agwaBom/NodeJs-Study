@@ -18,7 +18,7 @@ var req = http.get(options, function(res) {
   });
 
   res.on("end", function() {
-    //데이터를 전부 읽어들이고 end이벤트가 발생하면 응답된 resData를 출력함.
+    //end이벤트가 발생하면 응답된 resData를 출력함.
     console.log(resData);
   });
 });

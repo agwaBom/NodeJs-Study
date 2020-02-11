@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>파일 업로드 테스트</title>
+  </head>
+  <body>
+    <h1>파일 업로드</h1>
+    <br />
+    <!--요청할 URL 정보 = action을 /process/photo로 설정.-->
+    <!--enctype -> https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean-->
+    <!--쉽게 말해서 데이터 인코딩을 multipart/form-data로 하겠다는 뜻(input type이 file인 경우 사용)-->
+    <form method="post" enctype="multipart/form-data" action="/process/photo">
+      <table>
+        <tr>
+          <td><label>파일</label></td>
+          <!--input태그의 type 속성값을 file로 함으로써 multipart 포멧으로 서버에 업로드 요청을 할 수 있음.-->
+          <td><input type="file" name="photo" /></td>
+        </tr>
+      </table>
+
+      <input type="submit" value="업로드" name="submit" />
+    </form>
+  </body>
+</html>
