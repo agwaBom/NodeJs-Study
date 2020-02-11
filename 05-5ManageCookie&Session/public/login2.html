@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>로그인 테스트</title>
+  </head>
+  <body>
+    <h1>로그인</h1>
+    <br />
+    <!--form 태그에 넣어서 POST 방식으로 웹 서버에 요청. reqRouter.js에는 더 이상 use() 함수추가x-->
+    <!--라우터 객체에 라우팅 함수를 등록하여 /process/login 요청 패스 를 처리하도록 만듦-->
+    <form method="post" action="/process/login">
+      <table>
+        <tr>
+          <td><label>아이디</label></td>
+          <td><input type="text" name="id" /></td>
+        </tr>
+        <tr>
+          <td><label>비밀번호</label></td>
+          <td><input type="text" name="password" /></td>
+        </tr>
+      </table>
+
+      <input type="submit" value="전송" name="" />
+    </form>
+  </body>
+</html>
