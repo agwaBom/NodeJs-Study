@@ -47,13 +47,14 @@ app.use(
     saveUninitialized: true
   })
 );
-// supports CORS when clients requested with ajax
+// supports CORS when clients requested with ajax(?)
 app.use(cors());
 
 // use Multer Middleware: 미들웨어의 사용 순서가 중요함. body-parser -> multer -> router
 var storage = multer.diskStorage({
   destination: function(req, file, callback) {
-    // 그냥 "uploads를 하게되면 roots/uploads가 되어버려서 존재하지 않는 파일이 되어버림."
+    // 그냥 "uploads"를 하게되면 roots/uploads가 되어버려서 존재하지 않는 파일이 되어버림
+    // callback function을 써야하는 이유는 documentation이 그렇게 하라고 시킨 것임.
     callback(null, path.join(__dirname, "uploads"));
   },
   filename: function(req, file, callback) {
@@ -73,29 +74,37 @@ var router = express.Router();
 
 router
   .route("/process/photo")
+  // upload.array(fieldname, maximum number of files to process )
+  // photo.html 파일의 <input type="file" name="photo" /> input tag의 name과 같은 이름이 fieldname에 들어가야함.
   .post(upload.array("photo", 1), function(req, res) {
     console.log("/process/photo 호출됨");
 
     try {
+      // request된 파일의 전체를 files에 할당
       var files = req.files;
       console.dir("#===== 업로드된 첫번째 파일 정보 =====#");
+      // 처음 업로드된 파일의 정보
       console.dir(req.files[0]);
       console.dir("#=====#");
 
+      // 현재의 파일 정보를 저장할 변수 선언
       var originalname = "";
       var filename = "";
       var mimetype = "";
       var size = 0;
 
+      // 배열에 파일이 들어가있는지 확인.
       if (Array.isArray(files)) {
         console.log("배열에 들어있는 파일의 갯수 : %d", files.length);
         for (var index = 0; index < files.length; index++) {
+          // 파일의 각 정보를 가져올 수 있다.
           originalname = files[index].originalname;
           filename = files[index].filename;
           mimetype = files[index].mimetype;
           size = files[index].size;
         }
       } else {
+        // 배열에 파일이 들어있지 않은 경우.
         console.log("파일 갯수 : 1");
 
         originalname = files[index].originalname;
@@ -114,7 +123,7 @@ router
           ", " +
           size
       );
-
+      // 클라이언트에게 응답을 전송
       res.writeHead("200", { "Content-Type": "text/html;charset=utf8" });
       res.write("<h3>파일 업로드 성공</h3>");
       res.write("<hr/>");
